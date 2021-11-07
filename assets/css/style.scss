@@ -1,0 +1,818 @@
+// @import "../scss/bootstrap/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ----------------------------- ‍Animated ----------------------*/
+
+ :root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.8s;
+}
+
+
+/* ------------------------Fonts variable----------------------- */
+
+$primary-font:'DM Sans',
+sans-serif;
+$secondary-font:'Noto Sans',
+sans-serif;
+
+/* ------------------------font weidth----------------------- */
+
+// noto sans font family only two weight 400 and 700
+$regular:400;
+$medium:500;
+$bold:700;
+
+/* ------------------------colors variable----------------------- */
+
+$primary-text-color:#000;
+$black-color:#000;
+$secondary-text-color:#00458B;
+$light_green:#3FD2C7;
+$blue_light:#99DDFF;
+$light:#fff;
+$lighttwo:#eee;
+$lighttree:#faf8f8;
+
+/* ------------------------- section bg color --------------------*/
+
+
+/* ------------------------media mixin--------------------------- */
+
+@mixin minwidth($width) {
+    @media only screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin background_img() {
+    background-position: center center!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+}
+
+
+/* ------------------------body css --------------------------- */
+
+body {
+    font-family: $primary-font;
+    font-size: 16px;
+    line-height: 1.3;
+    transition: all 200ms linear;
+    @include minwidth(992px) {
+        // font-size: 18px;
+    }
+}
+
+.container {
+    @include minwidth(1450px) {
+        max-width: 1424px;
+    }
+}
+
+
+/* ------------------- Start Typography ----------------------- */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: $primary-text-color;
+    text-decoration: none;
+    transition: all 0.4s;
+    &:hover,
+    &:active {
+        color: $secondary-text-color;
+        text-decoration: none;
+    }
+}
+
+input {
+    &:not([type="file"]):not([type="image"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]) {
+        border: 1px solid #eaeaea;
+        padding: 5px 10px;
+        width: 100%;
+        margin-bottom: 5px;
+        height: 36px;
+        @include minwidth(768px) {
+            height: 40px;
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #ddd;
+    }
+}
+
+textarea {
+    border: 1px solid #eaeaea;
+    padding: 4px 10px;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 5px;
+    @include minwidth(768px) {
+        height: 180px;
+    }
+}
+
+select {
+    width: 100%;
+    border: 1px solid #eaeaea;
+    margin-bottom: 5px;
+    height: 36px;
+    @include minwidth(768px) {
+        height: 40px;
+    }
+}
+
+.btn,
+button[type="submit"],
+button[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    transition: all 0.4s;
+    display: inline-block;
+    color: $light;
+    border: none;
+    outline: none;
+    padding: 5px 15px;
+    margin-bottom: 4px;
+    background-color: $light_green;
+}
+
+.btn,
+button:focus {
+    outline: none!important;
+}
+
+strong,
+b,
+.b {
+    font-weight: 700;
+}
+
+blockquote {
+    // @extend .blockquote;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+}
+
+// remove commetn next time 
+//163 @extend
+//315 @extend
+// 157
+p,
+ol,
+ul,
+address,
+blockquote,
+form,
+table {
+    &:not(:last-child) {
+        margin-bottom: 15px;
+        @include minwidth(768px) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+li {
+    &:not(:last-child) {
+        margin-bottom: 6px;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: $primary-font;
+    font-weight: 700;
+}
+
+h1,
+.h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    &:not(:first-child) {
+        margin-top: 35px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    &:not(:first-child) {
+        margin-top: 28px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    &:not(:first-child) {
+        margin-top: 24px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    &:not(:first-child) {
+        margin-top: 22px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    &:not(:first-child) {
+        margin-top: 20px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    &:not(:first-child) {
+        margin-top: 16px;
+    }
+}
+
+@include minwidth(992px) {
+    h1,
+    .h1 {
+        font-size: 36px;
+        margin-bottom: 25px;
+        &:not(:first-child) {
+            margin-top: 45px;
+        }
+    }
+    h2,
+    .h2 {
+        font-size: 30px;
+        margin-bottom: 22px;
+        &:not(:first-child) {
+            margin-top: 40px;
+        }
+    }
+    h3,
+    .h3 {
+        font-size: 25px;
+        margin-bottom: 19px;
+        &:not(:first-child) {
+            margin-top: 32px;
+        }
+    }
+    h4,
+    .h4 {
+        font-size: 22px;
+        margin-bottom: 22px;
+        &:not(:first-child) {
+            margin-top: 28px;
+        }
+    }
+    h5,
+    .h5 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        &:not(:first-child) {
+            margin-top: 26px;
+        }
+    }
+    h6,
+    .h6 {
+        font-size: 18px;
+        margin-bottom: 16px;
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+    }
+}
+
+// remove this
+// table {
+//     @extend .table,
+//     .table-bordered;
+//     th {
+//         background: $black-color;
+//         color: #fff;
+//         font-weight: 700;
+//         @include minwidth(992px) {
+//             font-size: 18px;
+//         }
+//         @include minwidth(1200px) {
+//             font-size: 20px;
+//         }
+//     }
+// }
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    height: 0;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* ------------------------ start site typography ----------------------*/
+
+.secPadding {
+    padding: 30px 0px;
+}
+
+.secPaddingTop {
+    padding-top: 30px;
+}
+
+.secPaddingBottom {
+    padding-bottom: 30px;
+}
+
+.secMargin {
+    margin: 30px 0px;
+}
+
+.secMarginTop {
+    margin-top: 30px;
+}
+
+.secMarginBottom {
+    margin-bottom: 30px;
+}
+
+@include minwidth(1200px) {
+    .secPadding {
+        padding: 60px 0px;
+    }
+    .secPaddingTop {
+        padding-top: 60px;
+    }
+    .secPaddingBottom {
+        padding-bottom: 60px;
+    }
+    .secMargin {
+        margin: 60px 0px;
+    }
+    .secMarginTop {
+        margin-top: 60px;
+    }
+    .secMarginBottom {
+        margin-bottom: 60px;
+    }
+}
+
+.btn {
+    &.btn-primariey {
+        background-color: $blue_light;
+        color: $secondary-text-color;
+        padding: 15px;
+        font-size: 16px;
+        margin: 0px;
+        &:hover {
+            background-color: $light_green;
+            color: $light;
+        }
+        i {
+            font-size: 22px;
+        }
+        @include minwidth(991px) {
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+    }
+    &.btn-seconday {
+        border-radius: 0px;
+        width: 184px;
+        padding: 13px 45px;
+        background-color: #E86200;
+        background-color: -webkit-linear-gradient(top, #E86200, #743100);
+        background-color: -moz-linear-gradient(top, #E86200, #743100);
+        background-color: linear-gradient(to bottom, #E86200, #743100);
+        // transition: 1s;
+        &:hover {
+            background-color: $blue_light!important;
+            // transition: 1s;
+        }
+        @include minwidth(991px) {
+            padding: 13px 45px;
+        }
+    }
+}
+
+@mixin ulli {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+// --------------- start header section ---------
+// ---------------------- start menu section -----------------
+.tanvirmenu {
+    .bg-lights {
+        background-color: $secondary-text-color;
+    }
+    .shrp_box {
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    .navbar {
+        padding: 0px;
+    }
+    .logo {
+        width: 100px;
+        height: auto;
+        img {
+            width: 80px;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    .humbagur_icon {
+        display: block;
+        padding: 8px 0px;
+        font-size: 25px;
+        i {
+            color: $lighttwo;
+        }
+    }
+    // -------------- solve show html tag when lode site -------------
+    #menu:not(.mm-menu) {
+        display: none;
+    }
+    // -------------- end -------------
+    @include minwidth(992px) {
+        .humbagur_icon {
+            display: none;
+        }
+    }
+    @media only screen and (min-width:992px) {
+        .menuSection .as_mobile_menu {
+            display: none;
+        }
+        #desktopMenu {
+            display: block;
+        }
+        #desktopMenu li {
+            margin: 0px;
+            position: relative;
+            list-style: none;
+        }
+        #desktopMenu li a {
+            display: block;
+            white-space: nowrap;
+            padding: 11px 16px;
+            color: $light;
+            text-align: center;
+            font-size: 16px;
+            font-weight: $regular;
+        }
+        #desktopMenu li a:hover {
+            background-color: $blue_light;
+            color: $light;
+        }
+        #desktopMenu li:hover>a,
+        #desktopMenu li.current-menu-item>a,
+        #desktopMenu li.current-menu-ancestor>a {
+            text-decoration: none;
+            color: $light;
+            background-color: $blue_light;
+        }
+        #desktopMenu li.menu-item-has-children>a {
+            padding-right: 12px;
+        }
+        #desktopMenu li.menu-item-has-children:after {
+            content: "\f107";
+            display: block;
+            font-weight: 900;
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 80%;
+            font-family: "Font Awesome 5 Free";
+            color: inherit;
+        }
+        #desktopMenu li.menu-item-has-children.active:after {
+            border-top: 6px solid #fff;
+            right: 10px;
+        }
+        #desktopMenu li.active>a {
+            text-decoration: none;
+            color: $light;
+            background-color: $blue_light;
+            border-radius: 4px;
+        }
+        #desktopMenu li.active>a:hover,
+        #desktopMenu li.active>a:active {
+            background-color: $blue_light;
+        }
+        #desktopMenu li ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 9;
+            padding: 5px 0 0;
+            margin: 0;
+            min-width: 100px;
+            -webkit-transition: 0.4s all ease-in-out;
+            transition: 0.4s all ease-in-out;
+            opacity: 0;
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            z-index: 5;
+        }
+        #desktopMenu li ul li {
+            font-weight: 400;
+            background-color: $blue_light;
+            margin-bottom: 0;
+            padding: 0;
+        }
+        #desktopMenu li ul li:first-child:before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-bottom: 10px solid $blue_light;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+        }
+        #desktopMenu li ul li a {
+            text-align: left;
+            padding: 10px 15px;
+            color: $light;
+        }
+        #desktopMenu li ul li.menu-item-has-children:after {
+            content: "\f105";
+        }
+        #desktopMenu li ul li.current-menu-item>a,
+        #desktopMenu li ul li:hover>a,
+        #desktopMenu li ul li.current-menu-ancestor>a {
+            background-color: $blue_light;
+        }
+        #desktopMenu li ul li:hover>a {
+            background-color: $secondary-text-color;
+            color: $light;
+        }
+        #desktopMenu li ul li+li {
+            border-top: 1px solid #fff;
+        }
+        #desktopMenu li ul li ul {
+            top: 0;
+            left: 100%;
+            padding: 0;
+        }
+        #desktopMenu li ul li ul li:first-child:before {
+            display: none;
+        }
+        #desktopMenu li:hover>ul {
+            opacity: 1;
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+    }
+    @include minwidth(1200px) {
+        #desktopMenu {
+            li {
+                a {
+                    padding: 11px 30px;
+                }
+            }
+        }
+    }
+    @keyframes cssAnimation {
+        from {
+            -webkit-transform: scale(1) translate(0);
+        }
+        to {
+            -webkit-transform: scale(1.3) translate(0);
+        }
+    }
+    @-webkit-keyframes cssAnimation {
+        from {
+            -webkit-transform: scale(1) translate(0);
+        }
+        to {
+            -webkit-transform: scale(1.3) translate(0);
+        }
+    }
+}
+
+
+/* --------------- start slider bannar sectoin ---------------*/
+
+.bannar_section {
+    position: relative;
+    .bg-rgb-color {
+        width: 100%;
+        background: rgba(13, 17, 66, 0.79%);
+        height: 100%;
+    }
+    .bg-rgb-color::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 45%;
+        height: 100%;
+        background-color: rgba(5, 92, 25, 0.41);
+        z-index: 1;
+        display: block;
+        -webkit-transition: all 1.5s;
+        transition: all 1.5s;
+    }
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        font-size: 18px;
+        color: #fff;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .parallax-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 130%;
+        height: 100%;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .swiper-slide .title {
+        .h1 {
+            font-family: $primary-font;
+            font-weight: 700;
+            margin: 0px;
+            padding: 0px;
+            @include minwidth(768px) {
+                font-size: 45px;
+            }
+            @include minwidth(992px) {
+                font-size: 60px;
+            }
+        }
+        .h1::first-line {
+            color: $blue_light;
+        }
+    }
+    .swiper-slide .subtitle {
+        .h2 {
+            font-family: $primary-font;
+            font-weight: 700;
+            @include minwidth(768px) {
+                font-size: 26px;
+            }
+            @include minwidth(992px) {
+                font-size: 40px;
+            }
+        }
+    }
+    .swiper-slide .text .para {
+        font-size: 16px;
+        max-width: 600px;
+        width: 100%;
+        line-height: 1.3;
+    }
+    // slider content
+    .photo_box {
+        img {
+            width: 100%;
+            height: 300px;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+    .left_box {}
+    .right_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .pad_set {
+            margin-bottom: 0px;
+            &:not(:last-child) {
+                margin-bottom: 50px;
+                @include minwidth(991px) {
+                    margin-top: 20px;
+                }
+            }
+        }
+        .accountbng {
+            .btn-primariey {
+                background-color: $blue_light;
+                color: $secondary-text-color;
+                &:hover {
+                    background-color: $light_green;
+                    color: $light;
+                }
+                i {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+// --------------- about section -------------
+.information_one {
+    padding: 80px 0px;
+    .inner_box {
+        .img_camber {
+            img {
+                width: 100%;
+                height: 100%;
+                max-height: 500px;
+                object-fit: contain;
+            }
+        }
+        .text_camber {
+            .h3 {
+                color: $primary-text-color;
+                font-size: 30px;
+                font-weight: 700;
+                font-family: $secondary-font;
+            }
+            .para {
+                font-size: 18px;
+                font-family: $primary-font;
+                color: $black-color;
+            }
+        }
+    }
+}
+
+// --------------- service_section -------------------
+.service_section {
+    background-color: $lighttwo;
+    padding: 40px 0px;
+    @include minwidth(991px) {
+        padding: 80px 0px;
+    }
+    .text_camber {
+        background-color: $lighttree;
+        border-radius: 7px;
+        overflow: hidden;
+        height: 100%;
+        .img_sec {
+            img {
+                width: 100%;
+                height: 220px;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+        .text_service {
+            padding: 20px 15px 20px 15px;
+            text-align: center;
+        }
+        .title {
+            padding-top: 20px;
+            .h3 {
+                font-size: 22px;
+                color: $primary-text-color;
+                font-weight: $medium;
+                font-family: $secondary-font;
+            }
+        }
+        .para {
+            p {
+                font-size: 16px;
+                color: $primary-text-color;
+                font-family: $primary-font;
+            }
+        }
+    }
+}
